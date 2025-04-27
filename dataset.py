@@ -29,7 +29,6 @@ train_dir = "data"   # Change this to your training path
 val_dir = "data"     # change this to your validation set path
 test_dir = "data"    # change this to your test set path
 
-# Custom dataset loader (not necessary to redefine ImageFolder)
 FlowerDataset = datasets.ImageFolder
 
 # Loaders
