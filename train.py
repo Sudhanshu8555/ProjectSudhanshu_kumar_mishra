@@ -41,13 +41,13 @@ def train(model, train_loader, val_loader):
             best_val_acc = val_acc
             torch.save(model.state_dict(), "checkpoints/final_weights.pth")
             counter = 0
-            print("🔥 New best model saved!")
+            print("New best model saved!")
         else:
             counter += 1
-            print(f"😴 No improvement for {counter} epoch(s)")
+            print(f"No improvement for {counter} epoch(s)")
 
         if counter >= patience:
-            print("\n⏹️ Early stopping triggered")
+            print("\nEarly stopping triggered")
             break
 
 def evaluate(model, loader):
