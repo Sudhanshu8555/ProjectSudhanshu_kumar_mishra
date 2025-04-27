@@ -2,12 +2,13 @@ import torch
 import torch.optim as optim
 import torch.nn as nn
 from config import learning_rate, weight_decay, num_epochs, patience
+from dataset import train_loader, val_loader
 from tqdm import tqdm
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 criterion = nn.CrossEntropyLoss(label_smoothing=0.1)
 
-def train(model, train_loader, val_loader):
+def train(model):
     optimizer = optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
     scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=num_epochs)
     
