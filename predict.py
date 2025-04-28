@@ -1,10 +1,8 @@
 import torch
 from torchvision import transforms
 from PIL import Image
-from config import resize_x
+from config import resize_x, device
 from model import CustomResNet
-
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Inference transform (same as validation)
 infer_transform = transforms.Compose([
@@ -16,7 +14,7 @@ infer_transform = transforms.Compose([
 
 def predict(list_of_img_paths):
     model = CustomResNet()
-    model.load_state_dict(torch.load("checkpoints/final_weights.pth", map_location=device))
+    model.load_state_dict(torch.load("checkpoints/final_weights.pth", map_location=device))   
     model = model.to(device)
     model.eval()
 
