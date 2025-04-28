@@ -25,9 +25,9 @@ val_test_transforms = transforms.Compose([
 ])
 
 # Paths
-train_dir = "path/to/working/train"
-val_dir = "path/to/working/val"
-test_dir = "path/to/working/test"
+train_dir = "data"    # replace this with your training path
+val_dir = "data"      # replace this with your validation path
+test_dir = "data"     # replace this woth your test path
 
 # Custom dataset loader (not necessary to redefine ImageFolder)
 FlowerDataset = datasets.ImageFolder
