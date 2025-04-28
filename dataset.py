@@ -3,7 +3,7 @@ import random
 import shutil
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
-from config import batch_size, resize_x, resize_y
+from config import batch_size, resize_x, resize_y, test_dir,train_dir, val_dir
 
 # Define transformations
 train_transforms = transforms.Compose([
@@ -23,11 +23,6 @@ val_test_transforms = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
-
-# Paths
-train_dir = "data"    # replace this with your training path
-val_dir = "data"      # replace this with your validation path
-test_dir = "data"     # replace this woth your test path
 
 # Custom dataset loader (not necessary to redefine ImageFolder)
 FlowerDataset = datasets.ImageFolder

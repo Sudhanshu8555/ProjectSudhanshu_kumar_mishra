@@ -1,8 +1,9 @@
 import torch
 from torchvision import transforms
 from PIL import Image
-from config import resize_x, device
+from config import resize_x, device, test_dir
 from model import CustomResNet
+from dataset import FlowerDataset
 
 # Inference transform (same as validation)
 infer_transform = transforms.Compose([
@@ -11,6 +12,11 @@ infer_transform = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
+
+# Obtain the class labels
+dataset = FlowerDataset(root=test_dir)
+idx_to_class = dataset.classes
+
 
 def predict(list_of_img_paths):
     model = CustomResNet()
@@ -29,4 +35,7 @@ def predict(list_of_img_paths):
         output = model(batch)
         preds = output.argmax(dim=1).cpu().tolist()
 
-    return preds
+    # Convert indices to class names
+    class_preds = [idx_to_class[p] for p in preds]
+
+    return class_preds
