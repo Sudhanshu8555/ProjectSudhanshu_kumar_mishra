@@ -62,8 +62,7 @@ image_paths = ["data/img01.jpg", "data/img02.jpg", ...]  # List of image file pa
 predictions = the_predictor(image_paths)
 print(predictions)
 ```
-4. The final weights are in master branch, please use that for evaluation.
----
+
 
 ##  Model Architecture
 
