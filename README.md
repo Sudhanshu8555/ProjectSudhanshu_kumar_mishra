@@ -118,6 +118,3 @@ print(predictions)
 #  Thank you! 
 
 ---
-
-Would you also like me to give you a **small badge section** (like "Made with ❤️ using PyTorch") at the top of the README for extra style? 🎯🚀  
-Want that too? 🎨✅
